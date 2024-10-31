@@ -79,7 +79,10 @@ def get_scatter_chart(entered_site, payload):
             spacex_df[payload_mask],
             x='Payload Mass (kg)',
             y='class',
-            color='Booster Version Category'
+            color='Booster Version Category',
+            labels={
+                'class': 'Launch Success Rate'
+            }
         )
     else:
         filtered_df = spacex_df[(spacex_df['Launch Site'] == entered_site) & payload_mask]
@@ -87,7 +90,10 @@ def get_scatter_chart(entered_site, payload):
             filtered_df,
             x='Payload Mass (kg)',
             y='class',
-            color='Booster Version Category'
+            color='Booster Version Category',
+            labels={
+                'class': 'Launch Success Rate'
+            }
         )
     return fig
 

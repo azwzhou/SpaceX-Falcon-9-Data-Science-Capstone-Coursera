@@ -57,12 +57,12 @@ def get_pie_chart(entered_site):
     if entered_site == 'ALL':
         fig = px.pie(spacex_df[spacex_df['class'] == 1], values='class',
             names='Launch Site',
-            title='Total Successful Launches by Site')
+            title='Percentage of Successful Landings by Site')
     else:
         filtered_df = spacex_df[spacex_df['Launch Site'] == entered_site]
         fig = px.pie(filtered_df,
             names='class',
-            title=f'Total Successful Launches for site {entered_site}')
+            title=f'Successful [1] vs Unsuccessful Landings [0] for site {entered_site}')
     return fig
 
 # TASK 4:
@@ -81,7 +81,7 @@ def get_scatter_chart(entered_site, payload):
             y='class',
             color='Booster Version Category',
             labels={
-                'class': 'Launch Success Rate'
+                'class': 'Landing Success Rate'
             }
         )
     else:
@@ -92,7 +92,7 @@ def get_scatter_chart(entered_site, payload):
             y='class',
             color='Booster Version Category',
             labels={
-                'class': 'Launch Success Rate'
+                'class': 'Landing Success Rate'
             }
         )
     return fig
